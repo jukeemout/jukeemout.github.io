@@ -2,9 +2,9 @@
   margin-bottom: 15px;
   display: flex;
   justify-content: space-between;
-  background-color:#043b3d;
+  background-color:#8b0606bb;
   color: white;
-
+  padding: 1%
 }
 
 
@@ -20,18 +20,17 @@ align-items: center;
 flex-direction: column;
 
 }
-
 .body_content{
 
   display: flex;
   justify-items: center;
   max-width: 960px;
   flex-flow: row wrap;
-
+  justify-content: space-between;
 }
 
 .goals{
-  background-color: white;
+  /* background-color: white; */
   display: flex;
   width: 300px;
   flex: 0 1 auto;
@@ -39,22 +38,25 @@ flex-direction: column;
 }
 .goals img{
 
-  max-width: 300px;
-  max-height: 250px;
+  max-width: 200px;
+  max-height: 200px;
   border: 1px;
   border-radius: 4px;
  }
 
 .goals p{
-  margin: 1px;
-  padding: 8px;
+  /* margin: 1px; */
+  /* padding: 8px; */
+  background-color: white;
   align-items: baseline;
-  align-self: flex-start; 
+  align-self: center; 
+  max-width: 200px;
   color: skyblue;
+  border-radius: 5px;
 }
 .experience{
 padding: 10px;
-max-width: 600px;
+width: 600px;
 border: 1px dashed #FF8E34;
 background-color: #E88331;
 
@@ -69,7 +71,7 @@ body{
 
 h1, h2, h3, li {
   font-family: 'Averia Serif Libre', cursive;
-  color: #02859C;
+  color: #06298b;
 }
 
 
