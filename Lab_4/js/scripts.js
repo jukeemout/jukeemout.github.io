@@ -3,6 +3,8 @@
 // Lab 4
 
 let fullName = "Nicolas Castiblanco"; // 18 characters in name...not including space
+
+
 // 1 Change the content of the div with class "header" to "[Your name]'s Lab 4"
 
 const myName = document.querySelector(".header");
@@ -42,13 +44,14 @@ p2.innerText = "The 3rd character in my name is " + third + ". \n" + "The last 3
 
 // 8 Substring your first and last name into two separate variables
 
-const first = fullName.substring(0,fullName.indexOf(","));
-const last = fullName.substring(fullName.indexOf(","),fullName.length);
+const first = fullName.substring(0,fullName.indexOf(" "));
+const last = fullName.substring(fullName.indexOf(" ") + 1, fullName.length);
 
 // 9 Add the total length of your first and last names together
 
 const totalLength = first.length + last.length;
 
+
 // 10 Display that total next to your name in your header
 
-myName.innerText+= " The total length of my name in letters is " + totalLength
+myName.innerText+= "\nthe total length in characters of my name is: " + totalLength;
