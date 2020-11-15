@@ -290,3 +290,11 @@ const countriesList = [
   { name: "Zimbabwe", code: "ZW" },
 ];
 
+var num = "6";
+var num2 = 6;
+
+if( num === num2 ){
+console.log("case 1")
+}  else {
+console.log("case2");
+} 
