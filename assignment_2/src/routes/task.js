@@ -63,6 +63,21 @@ router.get('/task', (req, res) => {
         })
       });
 })
+router.get('/allTask', (req, res) => {
+
+    console.log("Get all task");
+    let sql = "select * from tasks";
+    db.all(sql, (err, row) => {
+      if (err) {
+        res.status(400).json({ "error": err.message });
+        return;
+      }
+      res.json({
+        "message": "success",
+        "data": row
+      })
+    });
+  })
 
 
 //Update

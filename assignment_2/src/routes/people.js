@@ -75,6 +75,4 @@ peopleRouter.post('/person', async (req, res) => {
 })
 
 
-
-
 module.exports = peopleRouter

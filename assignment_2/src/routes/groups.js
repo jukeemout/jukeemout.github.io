@@ -19,21 +19,22 @@ groupRouter.get('/allGroups', (req, res) => {
       });
 })
 
-// POST localhost:<port>/task
-groupRouter.post('/group', async (req, res) => {
+groupRouter.post('/groups', async (req, res) => {
   // now we have access to req.body due to body-parser (see index.js)
+  console.log(req.body)
+  
   if (!req.body) {
     return resizeBy.status(400).send('Request body is missing')
   }
 
   let group = {
-    groupName: req.body.name
+    name: req.body.name
   }
 
-  // First make sure that a record doesn't already exist
+  // group make sure that a record doesn't already exist
   let checkIfExistSql = "select * from groups where name = ?"
-  console.log("req.body.groupName: " + req.body.groupName)
-  let params = [req.body.groupName]
+  console.log("req.body.: " + req.body.name)
+  let params = [req.body.name]
   let nameExists = false;
   const rows = await new Promise((resolve, reject) => {
       db.all(checkIfExistSql, params, (err, rows) => {
@@ -45,7 +46,7 @@ groupRouter.post('/group', async (req, res) => {
         if(rows.length > 0){
           nameExists = true;
           res.json({
-            "message": "group already exists" 
+            "message": "Group already exists" 
           }).send()
           resolve(rows);
         }

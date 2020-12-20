@@ -6,7 +6,7 @@ function submitTask() {
 
   let taskNameParam = document.getElementById("taskName").value;
   let taskDueDate = document.getElementById("taskDueDate").value;
-  let group = document.getElementById("groupName").value;
+  let group = document.getElementById("group").value;
   let person = document.getElementById("firstName").value;
   let priority = document.getElementById("priority").value;
 
@@ -298,66 +298,6 @@ function submitNewPerson() {
 }
 
 /*
- ------ ADD NEW GROUP ------
-*/
-function submitNewGroup() {
-
-  console.log("Called submitNewGroup");
-  let groupName = document.getElementById("addGroupName").value;
-
-  console.log("groupName:" + groupName);
-  data = { 'groupName': groupName };
-
-  //console.log(JSON.stringify(data))
-  let groupURL = "http://localhost:4000/group";
-  const fetchPromise = fetch(groupURL, {
-    method: 'POST', headers: {
-      'Content-Type': 'application/json'
-
-    }, body: JSON.stringify(data)
-  });
-
-  let groupId;
-  fetchPromise
-    .then((response) => {
-      return response.json();
-    })
-    .then((group) => {
-      console.log("Here POST group");
-      console.log(group);
-
-      let message = "ERROR";
-      if (typeof group.id !== "undefined") {
-        groupName = group.data.groupName;
-        groupId = group.id;
-        message = "Message: " + group.message + " groupName: " + groupName + "<br>groupId: " + groupId + "<br> ";
-      }
-      else if(typeof group !== "undefined"){
-        message = "Message: " + group.message ;
-      }
-      document.getElementById("postNewGroupContent").innerHTML = message;
-    })
-    .catch((err) => {
-      console.log(err);
-      document.getElementById("postNewGroupContent").innerHTML = "Invalid group : " + data.groupName;
-    });
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
    ------------   Code for onload of page ------------
    1) Fills out drop down boxes
 */
@@ -398,6 +338,49 @@ async function getPageData(prepend = "") {
     })
 
 };
+
+function submitNewGroup() {
+
+  console.log("Called submitNewGroup");
+  let groupName = document.getElementById("addGroupName").value;
+
+  console.log("groupName:" + groupName);
+  data = { 'name': groupName };
+
+  let groupURL = "http://localhost:4000/groups";
+  const fetchPromise = fetch(groupURL, {
+    method: 'POST', headers: {
+      'Content-Type': 'application/json'
+
+    }, body: JSON.stringify(data)
+  });
+
+  let groupId;
+  fetchPromise
+    .then((response) => {
+      return response.json();
+    })
+    .then((group) => {
+      console.log("Here POST group");
+      console.log(group);
+
+      let message = "ERROR";
+      if (typeof group.id !== "undefined") {
+        groupName = group.data.groupName;
+        groupId = group.id;
+        message = "Message: " + group.message + " groupName: " + groupName + "<br>groupId: " + groupId + "<br> ";
+      }
+      else if(typeof group !== "undefined"){
+        message = "Message: " + group.message ;
+      }
+      document.getElementById("postNewGroupContent").innerHTML = message;
+    })
+    .catch((err) => {
+      console.log(err);
+      document.getElementById("postNewGroupContent").innerHTML = "Invalid group : " + data.firstName;
+    });
+
+}
 
 window.onload = async function loadPage() {
   getPageData();

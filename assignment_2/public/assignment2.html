@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Assignment 2 Test Page</title>
     <script defer src="js/assignment2script.js"></script>
+    <script defer src="js/search.js"></script>
     <link rel="stylesheet" href="css/style.css">
 
 </head>
@@ -136,14 +137,27 @@
 
         </div>
         <div class="flexbox-item">
-            -- Add New Group --
-            <label for="addGroupName">Group:</label>
+            <!-- Adding a new group -->
+            Add New Group
+            <label for="addgroupName">Group Name:</label>
             <input type="text" id="addGroupName" name="addGroupName"/>
             <br>
-            <button onclick="submitNewGroup()" class="flexbox-button">Add new group</button>
+            <button onclick="submitNewGroup()" class="flexbox-button">Add new Group</button>
           
             <p id="postNewGroupContent"></p>
+        </div>
 
+
+        <div class="flexbox-item">
+            <!-- Search Bar -->
+            -- Search Tasks -- 
+            <label for="search">Task Name:</label>
+            <input type="text" id="search" name="search/>
+    
+
+            <ul id="searchContent">
+                <li>Filter by Task Name</li>
+            </ul>
         </div>
 
     </div>
