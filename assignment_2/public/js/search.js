@@ -18,3 +18,24 @@
       });
   }
   
+  function displayValue(){
+     const matchData = findTasks(this.value, taskArray)
+     const html = matchData.map(task =>{
+         const regex = new RegExp(this.value, 'gi');
+         const taskN = task.taskName.replace(regex, `<span class="h1">${this.value}</span>`);
+         return `
+         <li>
+                <span> ${taskN} </span>
+         </li>
+         `
+     }).join('');
+
+     content.innerHTML = html
+     
+  }
+
+  const searchInput = document.getElementById('searchTask');
+  const content = document.getElementById('searchTaskContent')
+
+  searchInput.addEventListener('change', displayValue);
+  searchInput.addEventListener('keyup', displayValue);

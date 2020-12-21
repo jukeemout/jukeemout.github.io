@@ -347,6 +347,7 @@ function submitNewGroup() {
   console.log("groupName:" + groupName);
   data = { 'name': groupName };
 
+  //console.log(JSON.stringify(data))
   let groupURL = "http://localhost:4000/groups";
   const fetchPromise = fetch(groupURL, {
     method: 'POST', headers: {
@@ -381,6 +382,9 @@ function submitNewGroup() {
     });
 
 }
+
+
+
 
 window.onload = async function loadPage() {
   getPageData();
