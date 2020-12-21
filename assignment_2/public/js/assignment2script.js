@@ -342,10 +342,10 @@ async function getPageData(prepend = "") {
 function submitNewGroup() {
 
   console.log("Called submitNewGroup");
-  let groupName = document.getElementById("addGroupName").value;
+  let name = document.getElementById("addGroupName").value;
 
-  console.log("groupName:" + groupName);
-  data = { 'name': groupName };
+  console.log("groupName:" + name);
+  data = { name: name };
 
   //console.log(JSON.stringify(data))
   let groupURL = "http://localhost:4000/groups";
@@ -367,9 +367,9 @@ function submitNewGroup() {
 
       let message = "ERROR";
       if (typeof group.id !== "undefined") {
-        groupName = group.data.groupName;
+        name = group.data.name;
         groupId = group.id;
-        message = "Message: " + group.message + " groupName: " + groupName + "<br>groupId: " + groupId + "<br> ";
+        message = "Message: " + group.message + " groupName: " + name + "<br>groupId: " + groupId + "<br> ";
       }
       else if(typeof group !== "undefined"){
         message = "Message: " + group.message ;
